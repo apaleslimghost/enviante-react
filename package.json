@@ -1,0 +1,32 @@
+{
+  "name": "enviante-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib",
+  "scripts": {
+    "prepublish": "mkdir -p lib ; babel src/index.jsx -o lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quarterto/enviante-react.git"
+  },
+  "keywords": [],
+  "author": "Matt Brennan <matt@153.io> (http://blog.153.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quarterto/enviante-react/issues"
+  },
+  "homepage": "https://github.com/quarterto/enviante-react#readme",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "react-dom": "^15.2.1"
+  },
+  "dependencies": {
+    "react": "^15.2.1"
+  },
+  "babel": {
+    "presets": ["es2015", "react"]
+  }
+}
