@@ -44,10 +44,10 @@ export class ConnectedComponent extends Component {
 	}
 }
 
-export const createConnectComponent = connect => receiver => origProps =>
+export const createObserve = connect => receiver => origProps =>
 	<ConnectedComponent {...{connect, receiver, origProps}} />;
 
-export const createStoreMap = connect => (storeToProps, Child) =>
+export const createConnectComponent = connect => (storeToProps, Child) =>
 	createConnectComponent(connect)((props, {subscribe, dispatch, unsubscribe}) =>
 		<Child {...props} {...storeToProps(subscribe, dispatch, unsubscribe)} />);
 
