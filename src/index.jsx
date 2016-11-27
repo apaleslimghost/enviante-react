@@ -7,7 +7,6 @@ export class ConnectedComponent extends Component {
 		this.state = {child: null};
 
 		this.stateConnector = this.stateConnector.bind(this);
-		this.wrappedSubsrcribe = this.wrappedSubsrcribe.bind(this);
 	}
 
 	unsubscribe() {}
@@ -27,7 +26,7 @@ export class ConnectedComponent extends Component {
 		this.setState({
 			child: receiver(
 				origProps,
-				{subscribe: wrapSubsrcribe(subscribe), dispatch, unsubscribe}
+				{subscribe: this.wrapSubsrcribe(subscribe), dispatch, unsubscribe}
 			)
 		});
 	}
