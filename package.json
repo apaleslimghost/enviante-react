@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib",
   "scripts": {
-    "prepublish": "mkdir -p lib ; babel src/index.jsx -o lib/index.js"
+    "prepublish": "mkdir -p lib ; babel src/index.js -o lib/index.js"
   },
   "repository": {
     "type": "git",
