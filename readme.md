@@ -12,7 +12,7 @@ import {createObserve} from 'enviante-react';
 const connect = createStore({count: 1});
 const observe = createObserve(connect);
 
-const Counter = observe((props, ({subscribe, dispatch})) => <div>
+const Counter = observe((props, {subscribe, dispatch}) => <div>
 	{subscribe('count')}
 	<button onClick={() => dispatch('count', count => count + 1)} />
 </div>);
@@ -29,11 +29,11 @@ const connectComponent = createConnectComponent(connect);
 const Counter = ({count, increment}) => <div>
 	{count}
 	<button onClick={increment} />
-</div>
+</div>;
 
 const CounterContainer = connectComponent((subscribe, dispatch) => ({
 	count: subscribe('count'),
-	dispatch: () => dispatch('count', count => count + 1)
+	increment: () => dispatch('count', count => count + 1)
 }), Counter);
 ```
 
