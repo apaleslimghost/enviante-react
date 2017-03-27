@@ -19,14 +19,14 @@ export class ConnectedComponent extends Component {
 		this.subscriptions.forEach(this.unsubscribe);
 	}
 
-	stateConnector(subscribe, dispatch, unsubscribe) {
+	stateConnector({subscribe, dispatch, unsubscribe, meta}) {
 		const {receiver, origProps = {}} = this.props;
 		this.unsubscribe = unsubscribe;
 
 		this.setState({
 			child: receiver(
 				origProps,
-				{subscribe: this.wrapSubsrcribe(subscribe), dispatch, unsubscribe}
+				{subscribe: this.wrapSubsrcribe(subscribe), dispatch, unsubscribe, meta}
 			)
 		});
 	}
@@ -43,11 +43,5 @@ export class ConnectedComponent extends Component {
 	}
 }
 
-export const createObserve = connect => receiver => origProps =>
+export default connect => receiver => origProps =>
 	<ConnectedComponent {...{connect, receiver, origProps}} />;
-
-export const createConnectComponent = connect => (storeToProps, Child) =>
-	createConnectComponent(connect)((props, {subscribe, dispatch, unsubscribe}) =>
-		<Child {...props} {...storeToProps(subscribe, dispatch, unsubscribe)} />);
-
-export default createConnectComponent;

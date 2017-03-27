@@ -26,6 +26,9 @@
   "dependencies": {
     "react": "^15.2.1"
   },
+  "peerDependencies": {
+    "enviante": "^4.1.0"
+  },
   "babel": {
     "presets": [
       "es2015",
