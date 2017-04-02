@@ -19,6 +19,11 @@ export class ConnectedComponent extends Component {
 		this.subscriptions.forEach(this.unsubscribe);
 	}
 
+	componentWillReceiveProps() {
+		this.componentWillUnmount();
+		this.componentWillMount();
+	}
+
 	stateConnector({subscribe, dispatch, unsubscribe, meta}) {
 		const {receiver, origProps = {}} = this.props;
 		this.unsubscribe = unsubscribe;
